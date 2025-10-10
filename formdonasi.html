@@ -1,0 +1,122 @@
+<!-- donasi.html -->
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Donasi - CancerRiseUp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-pink-50 font-poppins">
+  <!-- Simple header (reuse) -->
+  <header class="shadow-sm">
+  <div class="container mx-auto px-4 py-4 flex flex-col items-center justify-center text-center">
+    <!-- Logo yang bisa diklik ke halaman utama -->
+    <a href="index.html" class="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center mb-2">
+      <img src="logo.jpeg" alt="Logo CancerRiseUp" class="w-full h-full object-cover">
+    </a>
+    <div>
+      <h1 class="text-xl font-bold">CancerRiseUp</h1>
+      <p class="text-xs text-gray-500 -mt-1">Bersama untuk harapan</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Left: Detail pasien -->
+      <div class="md:col-span-2 bg-white rounded-xl p-6 shadow">
+        <div class="flex gap-6">
+          <img src="pasien1.jpg" alt="Pasien" class="w-48 h-48 object-cover rounded-lg" />
+          <div>
+            <h2 class="text-2xl font-semibold text-pink-700">Siti - Kanker Payudara</h2>
+            <p class="text-gray-600 mt-2">Kebutuhan: Operasi &amp; Chemo - Rumah Sakit Umum</p>
+
+            <div class="mt-4">
+              <div class="text-sm text-gray-600">Target: <span class="font-semibold">Rp 100.000.000</span></div>
+              <div class="text-sm text-gray-600">Terkumpul: <span id="collectedAmount" class="font-semibold" data-amount="60000000">Rp 60.000.000</span></div>
+
+              <div class="progress-bar bg-pink-100 rounded-full h-4 mt-3 overflow-hidden">
+                <div id="donationProgress" class="progress-fill h-full rounded-full" style="width:60%"></div>
+              </div>
+            </div>
+
+            <div class="mt-4 text-sm text-gray-500">Update terakhir: 10 Oktober 2025</div>
+          </div>
+        </div>
+
+        <hr class="my-6">
+
+        <h3 class="font-semibold text-lg">Deskripsi Kasus</h3>
+        <p class="text-gray-600 mt-2">Siti memerlukan operasi dan kemoterapi. Dokumen medis diverifikasi oleh tim kami. Dana digunakan untuk pengobatan dan biaya rumah sakit.</p>
+
+        <hr class="my-6">
+
+        <h3 class="font-semibold text-lg">Laporan dan Transparansi</h3>
+        <p class="text-gray-600 mt-2">Laporan penggunaan dana akan diunggah di dashboard kampanye setelah pencairan.</p>
+      </div>
+
+      <!-- Right: Form donasi -->
+      <aside class="bg-white rounded-xl p-6 shadow">
+        <h3 class="text-xl font-semibold text-pink-700">Donasi Sekarang</h3>
+        <div class="mt-3 text-sm text-gray-600">Pilih nominal atau isi sendiri. Setiap rupiah membantu.</div>
+
+        <form id="donateForm" action="php/donate_process.php" method="POST" class="mt-4 space-y-3">
+          <input type="hidden" name="campaign_id" value="2" />
+          <label class="block">
+            <span class="text-sm">Nama</span>
+            <input name="name" required class="w-full mt-1 p-2 border rounded" />
+          </label>
+          <label class="block">
+            <span class="text-sm">Email</span>
+            <input type="email" name="email" required class="w-full mt-1 p-2 border rounded" />
+          </label>
+          <label class="block">
+            <span class="text-sm">Nominal (Rp)</span>
+            <input id="amountInput" name="amount" type="number" min="1000" required class="w-full mt-1 p-2 border rounded" />
+            <div class="flex gap-2 mt-2">
+              <button type="button" class="flex-1 py-2 rounded bg-pink-100" onclick="presetAmount(50000)">Rp50.000</button>
+              <button type="button" class="flex-1 py-2 rounded bg-pink-100" onclick="presetAmount(100000)">Rp100.000</button>
+              <button type="button" class="flex-1 py-2 rounded bg-pink-100" onclick="presetAmount(500000)">Rp500.000</button>
+            </div>
+          </label>
+
+          <label class="block">
+            <span class="text-sm">Pesan</span>
+            <textarea name="message" rows="3" class="w-full mt-1 p-2 border rounded"></textarea>
+          </label>
+
+          <label class="block">
+            <span class="text-sm">Metode Pembayaran</span>
+            <select name="method" class="w-full mt-1 p-2 border rounded">
+              <option value="qr">QR (Bank)</option>
+              <option value="transfer">Transfer Bank</option>
+              <option value="ewallet">E-Wallet</option>
+            </select>
+          </label>
+
+          <div class="mt-2">
+            <img src="qr/qr_donasi.png" alt="QR Pembayaran" class="w-48 h-48 object-cover rounded shadow" />
+            <div class="text-sm text-gray-500 mt-2">Scan QR untuk membayar via e-banking / e-wallet.</div>
+          </div>
+
+          <button type="submit" class="w-full bg-pink-500 text-white py-3 rounded-lg mt-3">Kirim Donasi Sekarang</button>
+        </form>
+      </aside>
+    </div>
+
+    <!-- Notifikasi success (hidden, tampil via JS) -->
+    <div id="thankyouPopup" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+      <div class="bg-white rounded-lg p-6 shadow text-center">
+        <h4 class="font-semibold text-pink-700">Terima kasih atas donasimu!</h4>
+        <p class="mt-2 text-sm text-gray-600">Donasi Anda telah kami terima. Kami akan mengirimkan tanda terima ke email Anda.</p>
+        <button onclick="closeThankyou()" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded">Tutup</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

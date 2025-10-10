@@ -1,0 +1,74 @@
+/* css/style.css */
+/* Palette: pink & white, plus soft gray */
+/* font-family via Google (Poppins) */
+:root{
+  --pink-500: #ec4899; /* tailwind-pink-500 */
+  --pink-300: #fbcfe8;
+  --soft-black: rgba(0,0,0,0.85);
+}
+
+/* small global tweaks */
+body { font-family: 'Poppins', sans-serif; }
+
+.social-icon img {
+  filter: grayscale(100%);
+  transition: filter .2s, box-shadow .2s, transform .2s;
+}
+.social-icon:hover img {
+  filter: none;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(236,72,153,0.25);
+}
+
+
+/* progress bar base */
+.progress {
+  height: 10px;
+  background: linear-gradient(90deg, rgba(236,72,153,0.15), rgba(236,72,153,0.05));
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress > .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink-500), #ff77b0);
+  width: 0%;
+  border-radius: 999px;
+  transition: width 1.2s ease-out;
+}
+
+/* campaign card */
+.campaign-card { background: white; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+
+/* slight fade-in on scroll */
+
+.fade-in.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* pink neon glow on hover for icons */
+.icon-neon:hover {
+  box-shadow: 0 10px 30px rgba(236,72,153,0.22);
+}
+
+/* modal */
+.modal-open { overflow: hidden; }
+
+/* like button style */
+.love-btn {
+  background: linear-gradient(90deg, #ff7abf, #ec4899);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 999px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  border:none;
+}
+
+/* responsive tweaks */
+@media (max-width: 768px){
+  .campaign-card { margin-bottom: 12px; }
+}
+

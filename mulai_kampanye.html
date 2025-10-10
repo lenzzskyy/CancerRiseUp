@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mulai Kampanye — CancerRiseUp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="font-poppins bg-white">
+
+  <header class="shadow-sm">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <!-- Logo yang bisa diklik ke halaman utama -->
+      <a href="index.html" class="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center">
+        <img src="logo.jpeg" alt="Logo CancerRiseUp" class="w-full h-full object-cover">
+      </a>
+      <div>
+        <h1 class="text-xl font-bold">CancerRiseUp</h1>
+        <p class="text-xs text-gray-500 -mt-1">Bersama untuk harapan</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <main class="container mx-auto px-4 py-10">
+    <h2 class="text-2xl font-bold mb-4">Ajukan Kampanye</h2>
+    <p class="text-gray-600 mb-4">Isi form berikut, lampirkan dokumen medis dan bukti identitas — tim kami akan memverifikasi.</p>
+
+    <form id="startCampaignForm" action="php/start_campaign.php" method="POST" enctype="multipart/form-data" class="grid gap-4">
+      <input type="text" name="nama_pasien" placeholder="Nama Pasien" required class="px-3 py-2 rounded border" />
+      <input type="text" name="judul_kampanye" placeholder="Judul Kampanye" required class="px-3 py-2 rounded border" />
+      <textarea name="deskripsi" placeholder="Deskripsi singkat kampanye" required class="px-3 py-2 rounded border h-36"></textarea>
+      <input type="number" name="target_dana" placeholder="Target Dana (Rp)" required class="px-3 py-2 rounded border" />
+      <label>Foto / Video Campaign</label>
+      <input type="file" name="file_media" accept="image/*,video/*" required />
+      <label>Dokumen Medis (PDF/JPG)</label>
+      <input type="file" name="dokumen_medis" accept=".pdf,image/*" required />
+      <button type="submit" class="bg-pink-500 text-white px-4 py-2 rounded">Kirim Pengajuan</button>
+    </form>
+
+    <div id="startMsg" class="mt-4"></div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

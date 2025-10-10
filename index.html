@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CancerRiseUp — Home</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="font-poppins bg-white text-gray-800">
+
+  <!-- Header -->
+    <header class="shadow-sm bg-white">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <!-- Logo di tengah kiri -->
+        <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center">
+            <img src="logo.jpeg" alt="Logo CancerRiseUp" class="w-full h-full object-cover">
+        </a>
+        <div class="text-center">
+            <h1 class="text-xl font-bold">CancerRiseUp</h1>
+            <p class="text-xs text-gray-500 -mt-1">Bersama untuk harapan</p>
+        </div>
+        </div>
+
+        <!-- Navigasi utama -->
+        <nav class="hidden md:flex items-center justify-center gap-6">
+        <a href="index.html" class="hover:text-pink-500">Home</a>
+        <a href="donasi.html" class="hover:text-pink-500">Kampanye</a>
+        <a href="mulai_kampanye.html" class="hover:text-pink-500">Mulai Kampanye</a>
+        <a href="tentang.html" class="hover:text-pink-500">Tentang Kami</a>
+        <a href="kontak.html" class="hover:text-pink-500">Komunitas</a>
+
+        <!-- Tombol dropdown -->
+        <div class="relative">
+            <button id="dropdownBtn" class="px-3 py-1 border rounded-full text-sm hover:bg-pink-50">
+            Lainnya
+            </button>
+            <div id="dropdownMenu" class="absolute right-0 mt-2 bg-white shadow-md rounded p-3 hidden w-48 z-20">
+            <a class="block py-1 hover:text-pink-500" href="#">Kontak</a>
+            <a class="block py-1 hover:text-pink-500" href="#">Blog</a>
+            <a class="block py-1 hover:text-pink-500" href="#">FAQ</a>
+            </div>
+        </div>
+
+        <a href="donasi.html" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg">
+            Donasi Sekarang
+        </a>
+        </nav>
+
+        <!-- Tombol menu mobile -->
+        <div class="md:hidden">
+        <button id="mobileMenuBtn" class="p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+            </svg>
+        </button>
+        </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div id="mobileNav" class="hidden md:hidden bg-white px-4 pb-4 text-center">
+        <a class="block py-2 hover:text-pink-500" href="index.html">Home</a>
+        <a class="block py-2 hover:text-pink-500" href="donasi.html">Kampanye</a>
+        <a class="block py-2 hover:text-pink-500" href="mulai_kampanye.html">Mulai Kampanye</a>
+        <a class="block py-2 hover:text-pink-500" href="tentang.html">Tentang Kami</a>
+        <a class="block py-2 hover:text-pink-500" href="kontak.html">Kontak</a>
+    </div>
+    </header>
+
+
+  <!-- Hero -->
+  <main>
+    <section class="bg-gradient-to-b from-pink-50 to-white">
+      <div class="container mx-auto px-4 py-12 md:py-20 flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-6/12">
+          <h2 class="text-3xl md:text-4xl font-bold text-pink-600">Bersama Kita Bantu Pasien Kanker Mendapatkan Harapan</h2>
+          <p class="mt-4 text-gray-600">Dukungan Anda bisa menyelamatkan nyawa — mulai kampanye atau berdonasi sekarang untuk membantu biaya pengobatan, perjalanan, dan perawatan.</p>
+          <div class="mt-6 flex gap-4">
+            <a href="donasi.html" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg text-lg shadow">Donasi Sekarang</a>
+            <a href="mulai_kampanye.html" class="border border-pink-300 text-pink-600 px-6 py-3 rounded-lg">Mulai Kampanye</a>
+          </div>
+        </div>
+
+        <div class="md:w-6/12">
+          <img src="home1.jpeg" alt="pasien" class="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Daftar Kampanye (cards + slider) -->
+    <section class="container mx-auto px-4 py-10">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xl font-semibold">Kampanye Terbaru</h3>
+        <div class="flex gap-2 items-center">
+          <button id="prevCampaign" class="p-2 rounded bg-white shadow">‹</button>
+          <button id="nextCampaign" class="p-2 rounded bg-white shadow">›</button>
+        </div>
+      </div>
+
+      <div id="campaignSlider" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- contoh kartu kampanye (akan di-clone oleh JS) -->
+        <!--
+        <div class="campaign-card p-4 rounded-lg border">
+          ...
+        </div>
+        -->
+      </div>
+
+      <div class="mt-4 text-right">
+        <a href="donasi.html" class="text-pink-500">Lihat semua kampanye →</a>
+      </div>
+    </section>
+
+    <!-- Testimoni Carousel -->
+    <section class="bg-pink-50 py-8">
+      <div class="container mx-auto px-4">
+        <h3 class="text-xl font-semibold mb-4">Cerita & Testimoni</h3>
+        <div id="testimonialCarousel" class="relative overflow-hidden rounded-lg bg-white shadow p-6">
+          <div id="testimonialInner" class="flex transition-transform duration-700">
+            <!-- slide akan dibuat oleh JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Footer small -->
+    <section class="container mx-auto px-4 py-10 text-center">
+      <h4 class="text-lg font-semibold">Ingin membantu lebih banyak pasien?</h4>
+      <p class="text-gray-600 mt-2">Mulai kampanye atau bagikan cerita ini agar lebih banyak yang peduli.</p>
+      <div class="mt-4">
+        <a href="mulai_kampanye.html" class="bg-white border border-pink-500 text-pink-600 px-6 py-2 rounded-lg">Mulai Kampanye</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/90 text-white mt-8">
+    <div class="container mx-auto px-4 py-8 grid md:grid-cols-3 gap-6">
+      <div>
+        <h5 class="text-xl font-bold">CancerRiseUp</h5>
+        <p class="text-sm text-gray-200 mt-2">Platform crowdfunding untuk membantu pasien kanker di Indonesia mendapatkan akses pengobatan yang mereka butuhkan.</p>
+        <div class="flex gap-3 mt-4">
+          <a class="social-icon" href="#"><img src="images/ic_fb.svg" alt="fb" class="w-6 h-6"/></a>
+          <a class="social-icon" href="#"><img src="images/ic_ig.svg" alt="ig" class="w-6 h-6"/></a>
+          <a class="social-icon" href="#"><img src="images/ic_tw.svg" alt="tw" class="w-6 h-6"/></a>
+          <a class="social-icon" href="#"><img src="images/ic_tt.svg" alt="tt" class="w-6 h-6"/></a>
+          <a class="social-icon" href="#"><img src="images/ic_yt.svg" alt="yt" class="w-6 h-6"/></a>
+        </div>
+      </div>
+
+      <div>
+        <h6 class="font-semibold">Tautan Cepat</h6>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="donasi.html">Kampanye</a></li>
+          <li><a href="mulai_kampanye.html">Mulai Kampanye</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h6 class="font-semibold">Dukungan</h6>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="kontak.html">Hubungi Kami</a></li>
+          <li><a href="#">Komunitas</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+          <li><a href="#">Syarat & Ketentuan</a></li>
+        </ul>
+
+        <div class="mt-4">
+          <h6 class="font-semibold">Newsletter</h6>
+          <form id="newsletterForm" class="mt-2 flex gap-2">
+            <input type="email" placeholder="Email Anda" required class="px-3 py-2 rounded w-full text-black" />
+            <button class="bg-pink-500 px-4 rounded text-white">Daftar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center text-sm bg-black/80 py-3">© <span id="year"></span> CancerRiseUp — Semua hak dilindungi</div>
+  </footer>
+
+  <!-- Modal QR -->
+  <div id="qrModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-40">
+    <div class="bg-white rounded-lg p-6 w-full max-w-sm">
+      <h4 class="font-semibold text-lg">Scan QR untuk Donasi</h4>
+      <img src="qr/qr_donasi.png" alt="QR" class="mt-4 mx-auto w-48 h-48" />
+      <div class="mt-4 text-right">
+        <button id="closeQr" class="px-4 py-2 rounded bg-gray-200">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>

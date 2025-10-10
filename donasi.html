@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kampanye — CancerRiseUp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="font-poppins bg-white">
+
+  <!-- Header (sederhana, re-use) -->
+    <header class="shadow-sm">
+  <div class="container mx-auto px-4 py-4 flex flex-col items-center justify-center text-center">
+    <!-- Logo yang bisa diklik ke halaman utama -->
+    <a href="index.html" class="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center mb-2">
+      <img src="logo.jpeg" alt="Logo CancerRiseUp" class="w-full h-full object-cover">
+    </a>
+    <div>
+      <h1 class="text-xl font-bold">CancerRiseUp</h1>
+      <p class="text-xs text-gray-500 -mt-1">Bersama untuk harapan</p>
+    </div>
+
+    <nav class="mt-3 flex items-center gap-6 justify-center">
+      <a href="donasi.html" class="text-pink-500">Kampanye</a>
+      <a href="mulai_kampanye.html">Mulai Kampanye</a>
+    </nav>
+  </div>
+</header>
+
+
+  <main class="container mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-6 text-center text-pink-600">Daftar Kampanye Donasi</h2>
+  <div id="allCampaigns" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Card akan muncul otomatis dari JS -->
+  </div>
+
+
+    <!-- contoh detail (modal atau halaman terpisah). Kita tampilkan modal detail -->
+    <div id="campaignDetailModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-40">
+      <div class="bg-white rounded-lg w-full max-w-3xl p-6 overflow-auto max-h-[90vh]">
+        <button id="closeDetail" class="mb-3 px-3 py-2 border rounded">Kembali</button>
+        <div id="detailContent"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
