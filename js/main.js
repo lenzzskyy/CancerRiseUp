@@ -197,3 +197,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+// Tambahan Update
+// Fungsi untuk mengisi otomatis nominal donasi
+function presetAmount(amount) {
+  const amountInput = document.getElementById("amountInput");
+  if (amountInput) {
+    amountInput.value = amount;
+    // Tambahkan efek animasi kecil agar terasa interaktif
+    amountInput.classList.add("ring", "ring-pink-300", "transition");
+    setTimeout(() => {
+      amountInput.classList.remove("ring", "ring-pink-300");
+    }, 300);
+  }
+}
+
+// Notifikasi terima kasih setelah donasi
+const donateForm = document.getElementById("donateForm");
+const thankyouPopup = document.getElementById("thankyouPopup");
+
+if (donateForm) {
+  donateForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // stop submit asli (simulasi saja)
+    thankyouPopup.classList.remove("hidden");
+    thankyouPopup.classList.add("flex");
+    donateForm.reset(); // reset form setelah submit
+  });
+}
+
+function closeThankyou() {
+  thankyouPopup.classList.add("hidden");
+  thankyouPopup.classList.remove("flex");
+}
